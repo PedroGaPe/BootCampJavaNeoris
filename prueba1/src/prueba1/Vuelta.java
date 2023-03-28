@@ -47,21 +47,23 @@ public class Vuelta {
 			}
 		}
 		System.out.println("fase-4-"+entradaInversaNums);
+		
 		char primero = entrada.charAt(0);
 		int ultimo = entrada.lastIndexOf(primero);
-		System.out.print("fase-5-");
+		String entradaSinFin = "";
 		for(int i = ultimo-1;i>=0;i--) {
-			System.out.print(entrada.charAt(i));
+			entradaSinFin += entrada.charAt(i);
 		}
-		System.out.println();
-		int indice =0;
-		System.out.print("fase-6-");
+		System.out.println("fase-5-"+entradaSinFin);
+		entrada += '&';
+		int indice = 0;
+		String entradaFinal = "";
 		do {
-			System.out.print(entrada.charAt(indice));
+			entradaFinal += entrada.charAt(indice);
 			indice++;
 			
-		}while(entrada.charAt(indice)!=primero);
-		System.out.println();
+		}while(entrada.charAt(indice)!='&');
+		System.out.println("fase-6-"+entradaFinal);
 	}
 
 }
