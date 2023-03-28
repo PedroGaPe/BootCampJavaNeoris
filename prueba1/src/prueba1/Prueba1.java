@@ -21,6 +21,7 @@ public class Prueba1 {
 		System.out.println("Radio circulo = "+circulo.getRadio());
 		System.out.println("Área circulo = "+circulo.dameArea());
 		System.out.println("Perímetro circulo = "+circulo.damePerimetro());
+		
 	}
 
 }
