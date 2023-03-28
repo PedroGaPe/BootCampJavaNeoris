@@ -15,7 +15,7 @@ public class Fechas {
 	}
 
 	public static void main(String[] args) {
-		Fechas fecha = new Fechas(20,8,2015);
+		Fechas fecha = new Fechas(32,8,2015);
 		if(fecha.metodo1()) {
 			System.out.println("Formato correcto usando metodo 1");
 		}else {
