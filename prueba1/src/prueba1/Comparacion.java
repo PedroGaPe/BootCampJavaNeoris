@@ -14,6 +14,15 @@ public class Comparacion {
 			System.out.println("El valor a: "+a+" es igual que el valor b: "+b);
 
 		}
+		if(a==0&&b==0) {
+			System.out.println("No son múltiplos");
+		}else {
+			if(a%b==0||b%a==0) {
+				System.out.println("Son múltiplos");
+			}else {
+				System.out.println("No son múltiplos");
+			}
+		}
 	}
 
 }
