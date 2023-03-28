@@ -1,11 +1,13 @@
 package prueba1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Baraja {
-	ArrayList<String> baraja;
+	TreeSet<String> baraja;
 	public Baraja() {
-		baraja = new ArrayList<String>();
+		baraja = new TreeSet<String>();
 		
 	}
 	public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class Baraja {
 		}
 	}
 
-	public ArrayList<String> getBaraja(){
+	public TreeSet<String> getBaraja(){
 		return baraja;
 	}
 	public void cargarBaraja() {
