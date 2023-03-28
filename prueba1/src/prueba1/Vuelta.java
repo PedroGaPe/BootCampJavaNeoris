@@ -58,11 +58,11 @@ public class Vuelta {
 		entrada += '&';
 		int indice = 0;
 		String entradaFinal = "";
-		do {
-			entradaFinal += entrada.charAt(indice);
-			indice++;
+		while(entrada.charAt(indice)!='&') {
+			entradaFinal = entrada.charAt(indice++)+entradaFinal;
 			
-		}while(entrada.charAt(indice)!='&');
+			
+		}
 		System.out.println("fase-6-"+entradaFinal);
 	}
 
