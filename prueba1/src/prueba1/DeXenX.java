@@ -3,11 +3,10 @@ package prueba1;
 public class DeXenX {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		for(int i = 1; i<100;i++) {
-			if(i%23==0) {
-				System.out.println(i);
-			}
+		int i = 100;
+		while(i>0) {
+			System.out.println(i);
+			i -=23;
 		}
 
 	}
