@@ -1,6 +1,7 @@
 package prueba1;
 
 public class Datos {
+	int hola;
 	int dia;
 	long nDni;
 	float precio;
