@@ -12,5 +12,5 @@ public class DibujarCuadrado {
 			System.out.println();
 		}
 	}
-
+	
 }

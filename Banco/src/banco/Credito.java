@@ -11,8 +11,10 @@ public class Credito extends Tarjeta {
 	private double mCredito; 
 	private ArrayList<Movimiento> mMovimientos;
 
-	public Credito(String mNumero, String mTitular, LocalDate mFechaCaducidad) {
+	public Credito(String mNumero, String mTitular, LocalDate mFechaCaducidad, double mCredito) {
 		super(mNumero, mTitular, mFechaCaducidad);
+		this.mCredito = mCredito;
+		this.mMovimientos = new ArrayList<Movimiento>();
 		// TODO Auto-generated constructor stub
 	}
 	//comentario68
@@ -20,7 +22,12 @@ public class Credito extends Tarjeta {
 
 	@Override
 	public void ingresar(double x) throws Exception {
-		this.mCuentaAsociada.ingresar(x, "Ingreso en cuenta asociada (cajero automático)");
+		if(x<0)
+			throw new PositivoException("Importe negativo");
+		Movimiento nMovimiento = new Movimiento();
+		nMovimiento.setmImporte(x);
+		nMovimiento.setmConcepto("Ingreso en cuenta asociada (cajero automático)");
+		this.mMovimientos.add(nMovimiento);
 	}
 
 	@Override
