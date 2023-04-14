@@ -2,7 +2,12 @@ package com.rf.tienda.dominio;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table (name = "usuario", schema = "tienda")
 public class Usuario {
+	@Id
 	private int id_usuario;
 	private String user_nombre;
 	private String user_email;
@@ -11,6 +16,18 @@ public class Usuario {
 	private String user_dni;
 	private LocalDate user_fecAlta;
 	private LocalDate user_fecConfirmacion;
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride(name = "dir_nombre", column = @Column(name="dir_nombre_pago")),
+		@AttributeOverride(name = "", column = @Column())
+	})
+	private Direccion user_pago;
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride(name = "dir_nombre", column = @Column(name="dir_nombre_envio")),
+		@AttributeOverride(name = "", column = @Column())
+	})
+	private Direccion user_envio;
 	public int getId_usuario() {
 		return id_usuario;
 	}

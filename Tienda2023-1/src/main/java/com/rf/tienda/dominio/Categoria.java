@@ -2,6 +2,8 @@ package com.rf.tienda.dominio;
 
 import com.rf.tienda.util.Validator;
 
+import jakarta.persistence.*;
+
 /**
  * 
  * Nombre		Categoria
@@ -10,12 +12,19 @@ import com.rf.tienda.util.Validator;
  * @version		13 de abr. de 2016
  *
  */
+@Entity
+@Table(name= "categoria", schema = "tienda", catalog = "")
 public class Categoria {
 	
+	@Id
+	@Column(name = "id")
 	private int id_categoria;			//identificador categoria
 	
+	@Basic
+	@Column(name = "nombre")
 	private String cat_nombre;			//nombre de la categoria
 	
+	@Column (name = "descripcion")
 	private String cat_descripcion;		//descripcion de la categoria
 	
 	
@@ -56,7 +65,8 @@ public class Categoria {
 	 * 
 	 */
 	public void setCat_nombre(String cat_nombre) {
-		this.cat_nombre = cat_nombre;
+		if(Validator.cumpleLongitudMin(cat_nombre, 5)&&Validator.cumpleLongitudMax(cat_nombre, 50))
+			this.cat_nombre = cat_nombre;
 	}
 	
 	/**

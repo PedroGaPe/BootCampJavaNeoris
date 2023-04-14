@@ -10,6 +10,7 @@ public class Direccion {
 	private String dir_provincia;
 	private String dir_pais;
 	private String dir_correoE;
+	
 	public String getDir_nombre() {
 		return dir_nombre;
 	}
