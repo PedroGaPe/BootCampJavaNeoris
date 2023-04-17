@@ -2,7 +2,7 @@ package com.rf.tienda.dominio;
 
 import com.rf.tienda.util.Validator;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 /**
  * 
@@ -13,10 +13,11 @@ import jakarta.persistence.*;
  *
  */
 @Entity
-@Table(name= "categoria", schema = "tienda", catalog = "")
+@Table(name= "categoria", schema = "PGP_ALUMNO", catalog = "")
 public class Categoria {
 	
 	@Id
+	@GeneratedValue
 	@Column(name = "id")
 	private int id_categoria;			//identificador categoria
 	
@@ -27,9 +28,7 @@ public class Categoria {
 	@Column (name = "descripcion")
 	private String cat_descripcion;		//descripcion de la categoria
 	
-	
-	public Categoria(){}
-	
+		
 	
 	public boolean isValid(){	
 		return !Validator.isVacio(cat_nombre) &&

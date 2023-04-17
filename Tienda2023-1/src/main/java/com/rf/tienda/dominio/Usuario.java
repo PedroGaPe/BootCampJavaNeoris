@@ -2,7 +2,7 @@ package com.rf.tienda.dominio;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table (name = "usuario", schema = "tienda")
