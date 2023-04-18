@@ -2,8 +2,9 @@ package com.rf.tienda.dominio;
 
 import java.time.LocalDate;
 
-import javax.persistence.*;
 
+public class Usuario {
+/*
 @Entity
 @Table (name = "usuario", schema = "tienda")
 public class Usuario {
@@ -78,6 +79,6 @@ public class Usuario {
 	}
 	
 	
-	
+	*/
 	
 }

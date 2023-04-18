@@ -4,6 +4,8 @@ import com.rf.tienda.util.Validator;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Required;
+
 /**
  * 
  * Nombre		Categoria
@@ -12,12 +14,12 @@ import javax.persistence.*;
  * @version		13 de abr. de 2016
  *
  */
+@SuppressWarnings("deprecation")
 @Entity
-//@Table(name= "categoria", schema = "PGP_ALUMNO", catalog = "")
 public class Categoria {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private int id_categoria;			//identificador categoria
 	
 	@Column(name = "nombre", nullable= false)
@@ -26,6 +28,7 @@ public class Categoria {
 	@Column (name = "descripcion")
 	private String cat_descripcion;		//descripcion de la categoria
 	
+	public Categoria() {}
 		
 	
 	public boolean isValid(){	
@@ -61,6 +64,7 @@ public class Categoria {
 	 * Setter para el nombre de categoria
 	 * 
 	 */
+	@Required
 	public void setCat_nombre(String cat_nombre) {
 		if(Validator.cumpleLongitudMin(cat_nombre, 5)&&Validator.cumpleLongitudMax(cat_nombre, 50))
 			this.cat_nombre = cat_nombre;
