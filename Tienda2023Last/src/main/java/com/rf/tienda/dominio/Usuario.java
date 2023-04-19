@@ -1,5 +1,6 @@
 package com.rf.tienda.dominio;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import javax.persistence.*;
@@ -60,25 +61,34 @@ public class Usuario {
 		return user_nombre;
 	}
 
-	public void setUser_nombre(String user_nombre) {
-		this.user_nombre = user_nombre;
+	public void setUser_nombre(String user_nombre) throws DomainException {
+		if(Validator.cumpleLongitud(user_nombre, 5, 100))
+			this.user_nombre = user_nombre;
+		else 
+			throw new DomainException();
 	}
 
 	public String getUser_email() {
 		return user_email;
 	}
 
-	public void setUser_email(String user_email) {
+	public void setUser_email(String user_email) throws DomainException {
 		if(Validator.isEmailValido(user_email))
 			this.user_email = user_email;
+		else
+			throw new DomainException();
 	}
 
 	public String getUser_pass() {
 		return user_pass;
 	}
 
-	public void setUser_pass(String user_pass) {
-		this.user_pass = user_pass;
+	public void setUser_pass(String user_pass) throws DomainException {
+		if(Validator.esPasswordValida(user_pass))
+			this.user_pass = user_pass;
+		else 
+			throw new DomainException();
+		
 	}
 
 	public int getUser_tipo() {
@@ -101,11 +111,13 @@ public class Usuario {
 			throw new DomainException();
 	}
 
-	public LocalDate getUser_fecAlta() {
-		return user_fecAlta;
+	public String getUser_fecAlta() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); 
+		String aux = formatter.format(user_fecAlta);
+		return aux;
 	}
 
-	public void setUser_fecAlta(String user_fecAlta) {
+	public void setUser_fecAlta(String user_fecAlta) throws DomainException {
 		if (Validator.esFechaValida(user_fecAlta)) {
 			String[] aux = user_fecAlta.split("/");
 			int anio = Integer.parseInt(aux[2]);
@@ -113,20 +125,24 @@ public class Usuario {
 			int dia = Integer.parseInt(aux[0]);
 			this.user_fecAlta = LocalDate.of(anio, mes, dia);
 		}
+		else
+			throw new DomainException();
 	}
 
-	public LocalDate getUser_fecConfirmacion() {
-		return user_fecConfirmacion;
-	}
+	public String getUser_fecConfirmacion() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); 
+		String aux = formatter.format(user_fecConfirmacion);
+		return aux;	}
 
-	public void setUser_fecConfirmacion(String user_fecConfirmacion) {
+	public void setUser_fecConfirmacion(String user_fecConfirmacion) throws DomainException {
 		if (Validator.esFechaValida(user_fecConfirmacion)) {
 			String[] aux = user_fecConfirmacion.split("/");
 			int anio = Integer.parseInt(aux[2]);
 			int mes = Integer.parseInt(aux[1]);
 			int dia = Integer.parseInt(aux[0]);
 			this.user_fecConfirmacion = LocalDate.of(anio, mes, dia);
-		}
+		}else
+			throw new DomainException();
 	}
 
 }
